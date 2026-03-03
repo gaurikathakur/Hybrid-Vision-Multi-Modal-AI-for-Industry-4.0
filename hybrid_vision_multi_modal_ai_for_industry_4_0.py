@@ -23,10 +23,10 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import os
 
-# Define the path (this might vary slightly depending on the version)
+
 sample_folder = os.path.join(path_dl, 'NEU-DET', 'train', 'images')
 
-# Filter for image files only (avoiding folders like 'patches')
+
 image_files = [f for f in os.listdir(sample_folder) if f.endswith(('.jpg', '.png', '.jpeg'))]
 
 if image_files:
@@ -46,7 +46,7 @@ import pandas as pd
 import os
 import glob
 
-# 1. Find the file anywhere inside the path_ml directory
+
 search_pattern = os.path.join(path_ml, "**", "train_FD001.txt")
 found_files = glob.glob(search_pattern, recursive=True)
 
@@ -57,7 +57,7 @@ else:
     file_path = found_files[0]
     print(f"✅ Found it at: {file_path}")
 
-    # 2. Load the data (using r'\s+' to fix the SyntaxWarning)
+    
     train_df = pd.read_csv(file_path, sep=r'\s+', header=None)
 
     # 3. Name the columns
@@ -86,7 +86,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, r2_score
 
-# 1. Define Features: Drop the ID and the target RUL
+
 X = train_df.drop(['unit_nr', 'RUL'], axis=1)
 y = train_df['RUL']
 
