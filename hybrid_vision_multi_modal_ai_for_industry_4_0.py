@@ -164,10 +164,10 @@ val_generator = datagen.flow_from_directory(
     subset='validation'
 )
 
-# 3. Load ResNet50 without the top layer
+
 base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
 
-# Freeze the base model (don't retrain the early layers)
+
 base_model.trainable = False
 
 # Add custom layers for our 6 defect classes
