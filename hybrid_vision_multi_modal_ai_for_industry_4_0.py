@@ -124,7 +124,6 @@ def check_machine_health(current_sensor_data):
     else:
         return "✅ Machine Healthy. Continue monitoring."
 
-# Test it with a random row from the validation set
 sample_data = X_val.iloc[[10]]
 result = check_machine_health(sample_data)
 print(f"System Status: {result}")
